@@ -115,22 +115,7 @@ async function run() {
         });
 
 
-        app.get("/addCard", async (req, res) => {
-            const result = await cartsCollection.find().toArray();
-            res.send(result);
-        });
-
        
-
-        app.delete('/addCard/:id', async (req, res) => {
-            const id = req.params.id;
-            console.log('please delete', id)
-            const query = { _id: (id) };
-            const result = await cartsCollection.deleteOne(query);
-            res.send(result)
-          })
-
-
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
