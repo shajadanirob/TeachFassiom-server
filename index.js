@@ -25,7 +25,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
     try {
-        // Connect the client to the server	(optional starting in v4.7)
+        
         await client.connect();
         const database = client.db("ProductsDB");
         const productsCollection = database.collection("products");
@@ -95,7 +95,7 @@ async function run() {
             };
 
 
-            //   productName, brand, category, price, rating, ProductDetails, image
+            
 
             const result = await productsCollection.updateOne(
                 filter,
@@ -120,17 +120,7 @@ async function run() {
             res.send(result);
         });
 
-        // app.get("/addCard/:id", async (req, res) => {
-        //     const id = req.params.id;
-        //     const query = {
-        //         _id: new ObjectId(id),
-        //     };
-        //     const result = await productsCollection.findOne(query);
-        //     console.log(result);
-        //     res.send(result);
-        // });
-
-
+       
 
         app.delete('/addCard/:id', async (req, res) => {
             const id = req.params.id;
